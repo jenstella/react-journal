@@ -1,21 +1,24 @@
-import './App.css';
-import Home from './components/Home';
+import "./App.css";
+import Home from "./components/Home";
+import Facts from "./components/Facts";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div id="">
-    <h1>Today I Learned:</h1>
-    <Switch>
-      <Route exact path={"/"} component={Home} />
-      {/* <Route path={} component={} />
-      <Route path={} component={} /> */}
-    </Switch>
-
-  </div>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Home />
+          <Facts >
+            <h1>List of Entries</h1>
+          </Facts>
+          <Route path={"/facts/:objectId"}>
+            <h1>shows one specific entry</h1>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 
 export default App;
-
-//put mongoose in here and send as props? to make secure?
-//to write it once and then pass as props to cut down as many times`
