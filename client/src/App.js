@@ -9,8 +9,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path='/' component={Home} />
-          <Facts path='/facts' component={Facts} />
-          <Route path={"/facts/:objectId"}>
+          <Facts path='/Facts' component={Facts} />
+          <Route path={"/Facts/:objectId"}>
             <h1>shows one specific entry</h1>
           </Route>
         </Switch>
