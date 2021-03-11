@@ -8,10 +8,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Home />
-          <Facts >
-            <h1>List of Entries</h1>
-          </Facts>
+          <Route path='/' component={Home} />
+          <Facts path='/facts' component={Facts} />
           <Route path={"/facts/:objectId"}>
             <h1>shows one specific entry</h1>
           </Route>
