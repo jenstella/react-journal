@@ -5,8 +5,11 @@ export default function Home() {
         <div>
             <h1>Today I Learned</h1>
             <form action='/' method='POST'>
-                <label>Entry: <input name="entry" type="text"/></label>
-                <label>Tags: <input name="tags" type="text" /></label>
+                <label><br></br><input placeholder="title" type="text"/><br></br></label>
+                <label><br></br><input placeholder="author" type="text" /><br></br></label>
+                <label><br></br><input placeholder="date" type="text" /><br></br></label>
+                <label><br></br><input placeholder="tags" type="text" /><br></br></label>
+                <label><br></br><textarea placeholder="entry" type="text" /><br></br></label>
                 <input type="submit" />
             </form>
             {/* adding a post, viewing all, crud */}
