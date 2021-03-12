@@ -5,7 +5,7 @@ export default function Edit() {
     return (
         <div>
             <Nav />
-            <h1>This is the edit page</h1>
+            <h1 id="page-headers">This is the edit page</h1>
         </div>
     )
 }

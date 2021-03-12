@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+/* Buttons */
+
+.nav-button {
+background-color: rgb(194, 250, 231);
+border: none;
+font-family: 'Poiret One', cursive;
+font-size: 26px;
+padding: 10px;
+margin: 5px;
+width: 175px;
+}
+
+#submit-button {
+  font-family: 'Poiret One', cursive;
+  border: none;
+  background-color: rgb(170, 202, 245);
+  padding: 8px;
+  margin: 5px;
+  font-size: 22px;
+}
+
+/* Headers & Inputs */
+
+#page-headers {
+  font-family: 'Poiret One', cursive;
+}
+
+.inputs {
+  font-family: 'Poiret One', cursive;
+  font-size: 20px;
+}
+

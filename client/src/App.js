@@ -17,7 +17,6 @@ function App() {
               <Edit />
             </Route>
           <Route path={"/facts/:objectId"}>
-            <h1>shows one specific entry</h1>
           </Route>
         </Switch>
       </BrowserRouter>
