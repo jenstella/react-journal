@@ -1,13 +1,13 @@
 import React from "react";
 
-
 export default function Home() {
- 
   return (
+    //on home screen have the forms to fill out entry
+    //the form info gets pushed into the entries page/compass
     <div>
       <h1 id="page-headers">Today I Learned:</h1>
       <form id="form-container" action="/add" method="POST">
-        <label  className="inputs">
+        <label className="inputs">
           <br></br>Title<br></br>
           <input name="title" type="text" />
           <br></br>
@@ -17,7 +17,7 @@ export default function Home() {
           <input name="author" type="text" />
           <br></br>
         </label>
-        <label  className="inputs">
+        <label className="inputs">
           <br></br>Date<br></br>
           <input name="date" type="date" />
           <br></br>

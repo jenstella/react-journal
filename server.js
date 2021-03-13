@@ -60,9 +60,9 @@ app.post("/add", async (req, res) => {
 app.get("/api", async (req, res) => {
   //get everything
   const cursor = await EntriesModel.find({});
-//create an array to hold it
+  //create an array to hold it
   let results = [];
-//iterate over cursor obj to push each doc into array
+  //iterate over cursor obj to push each doc into array
   await cursor.forEach((entry) => {
     results.push(entry);
   });
@@ -91,6 +91,23 @@ NewEntry1.save((err, data) => {
   }
 });
 
+app.get('/api/:id', async (req, res) => {
+  let id = req.params.id
+  console.log(id)
+  let data = await EntriesModel.findOne({ _id: id})
+   console.log(data)
+
+   let results = []
+
+   results.push(data);
+
+   res.json(results);
+})
+
+app.get("/*", (req, res) => {
+  res.send("sorry this is not found")
+})
+
 // //prints all entries in the database to terminal
 //comment out when adding an entry
 // async function printAll() {
@@ -102,7 +119,7 @@ NewEntry1.save((err, data) => {
 // }
 // printAll()
 
-
+//port
 app.listen(port, () => {
   console.log("Listening on port:", port);
 });
