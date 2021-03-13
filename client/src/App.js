@@ -2,12 +2,14 @@ import "./App.css";
 import Home from "./components/Home";
 import Facts from "./components/Facts";
 import Edit from "./components/Edit"
+import Nav from "./components/Nav"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <Nav />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/facts' component={Facts} >

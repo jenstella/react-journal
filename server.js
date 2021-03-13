@@ -32,8 +32,9 @@ db.on("error", console.error.bind(console, "connection error"));
 //this is the entrySchema Model -- this is what writes to specific collection /enforces shape
 const entrySchema = new mongoose.Schema({
   date: Date,
+  title: String,
   author: String,
-  content: String,
+  entry: String,
   tags: Array,
 });
 
@@ -46,9 +47,10 @@ app.use(express.urlencoded({ extended: true }));
 //adding a new entry
 app.post("/add", async (req, res) => {
   let newEntry = new EntriesModel({
+    title: req.body.title,
     author: req.body.author,
     date: Date.now(),
-    content: req.body.entry,
+    entry: req.body.entry,
     tags: [req.body.tags],
   });
   await newEntry.save();
@@ -56,10 +58,11 @@ app.post("/add", async (req, res) => {
 });
 
 app.get("/api", async (req, res) => {
+  //get everything
   const cursor = await EntriesModel.find({});
-
+//create an array to hold it
   let results = [];
-
+//iterate over cursor obj to push each doc into array
   await cursor.forEach((entry) => {
     results.push(entry);
   });
@@ -71,8 +74,10 @@ app.get("/api", async (req, res) => {
 // adding a new entry
 // comment out when printing all
 const NewEntry1 = new EntriesModel({
+  title: "This is the title",
+  author: "Author's Name",
   date: Date(),
-  content: "this is my test example",
+  entry: "this is my test example",
   tags: ["testing"],
 });
 
