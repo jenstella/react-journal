@@ -32,7 +32,7 @@ export default function Home() {
           <textarea name="entry" type="text" />
           <br></br>
         </label>
-        <input id="submit-button" type="submit" />
+        <input id="on-page-buttons" type="submit" />
       </form>
     </div>
   );

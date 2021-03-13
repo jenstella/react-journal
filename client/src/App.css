@@ -49,13 +49,22 @@ margin: 5px;
 width: 175px;
 }
 
-#submit-button {
+#on-page-buttons {
   font-family: 'Poiret One', cursive;
   border: none;
   background-color: rgb(170, 202, 245);
   padding: 8px;
   margin: 5px;
   font-size: 22px;
+}
+
+.on-page-buttons {
+  font-family: 'Poiret One', cursive;
+  border: none;
+  background-color: rgb(170, 202, 245);
+  padding: 8px;
+  margin: 5px;
+  font-size: 18px;
 }
 
 /* Headers & Inputs */

@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 
 
 
@@ -31,14 +32,9 @@ export default function Facts() {
                             <h4 key={index + "-date"}>{entry.date}</h4>
                             <p key={index + "-entry"}>{entry.entry}</p>
                             <h4 key={index + "-tags"}>{entry.tags}</h4>
-                            <button id={index + "-edit"}>
-                                {/* onClick="editEntry()" */}
-                                Edit Entry Data
-                            </button>
-                            <button id={index + "-delete"}>
-                                {/* onClick="removeEntry()" */}
-                                Remove Entry
-                            </button>
+                            <Link style={{ textDecoration: "none", color: "black" }} to={"/Edit"}><button className="on-page-buttons" id={index + "-edit"} >
+                                Edit / Remove
+                            </button></Link>
                         </div>
                     )
                 })
