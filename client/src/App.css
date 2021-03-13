@@ -78,3 +78,20 @@ width: 175px;
   font-size: 20px;
 }
 
+/* -----containers----- */
+#entry-container {
+  font-family: 'Poiret One', cursive;
+}
+
+#entry-container-2 {
+  font-family: 'Poiret One', cursive;
+}
+
+/* -----main body------ */
+
+#main-body {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
