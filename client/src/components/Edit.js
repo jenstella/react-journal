@@ -54,19 +54,23 @@ export default function Edit() {
           <textarea name="entry" type="text" />
           <br></br>
         </label>
-        <input id="on-page-buttons" type="submit" />
+        <input id="on-page-buttons" type="submit" value="Submit Changes"/>
       </form>
       <hr />
-      <h1 id="page-headers">This is the edit page</h1>
+      <h1 id="page-headers">Original Post:</h1>
       {oneEntry.length !== 0 ? (
         <div id="update-container">
+          <h1 key={oneEntry.index + "-title"}>{oneEntry.title}</h1>{" "}
           <h3 key={oneEntry.index + "-author"}>{oneEntry.author}</h3>{" "}
+          <h4 key={oneEntry.index + "-date"}>{oneEntry.date}</h4>{" "}
+          <p key={oneEntry.index + "-entry"}>{oneEntry.entry}</p>{" "}
+          <h3 key={oneEntry.index + "-tags"}>{oneEntry.tags}</h3>{" "}
         </div>
       ) : (
         "Loading Data..."
       )}
-
-      <button className="on-page-buttons">Edit Entry Data</button>
+{/* 
+      <button className="on-page-buttons">Edit Entry Data</button> */}
       <button className="on-page-buttons">Delete Entry</button>
     </div>
   );
