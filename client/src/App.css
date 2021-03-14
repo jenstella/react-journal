@@ -40,17 +40,17 @@
 /* Buttons */
 
 .nav-button {
-background-color: rgb(194, 250, 231);
-border: none;
-font-family: 'Poiret One', cursive;
-font-size: 26px;
-padding: 10px;
-margin: 5px;
-width: 175px;
+  background-color: rgb(194, 250, 231);
+  border: none;
+  font-family: "Poiret One", cursive;
+  font-size: 26px;
+  padding: 10px;
+  margin: 5px;
+  width: 175px;
 }
 
 #on-page-buttons {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
   border: none;
   background-color: rgb(170, 202, 245);
   padding: 8px;
@@ -59,7 +59,7 @@ width: 175px;
 }
 
 .on-page-buttons {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
   border: none;
   background-color: rgb(170, 202, 245);
   padding: 8px;
@@ -70,21 +70,21 @@ width: 175px;
 /* Headers & Inputs */
 
 #page-headers {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
 }
 
 .inputs {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
   font-size: 20px;
 }
 
 /* -----containers----- */
 #entry-container {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
 }
 
 #entry-container-2 {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
 }
 
 /* -----main body------ */

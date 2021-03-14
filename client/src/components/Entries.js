@@ -32,7 +32,7 @@ export default function Entries() {
               <h4 key={index + "-tags"}>{entry.tags}</h4>
               <Link
                 style={{ textDecoration: "none", color: "black" }}
-                to={"/Edit"}
+                to={"/Edit/" + entry._id}
               >
                 <button className="on-page-buttons" id={index + ""}>
                   Edit / Remove

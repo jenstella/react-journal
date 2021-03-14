@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 5000;
+const {ObjectId} = require('mongodb')
 
 const staticDir = path.resolve("./client/public");
 //how to draw in the user/pw from the .env
@@ -57,6 +58,24 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
+//
+async function updateEntry(id, update) {
+  let updateObj = {
+    $set: update
+  }
+  await EntriesModel.updateOne({_id: ObjectId(id)}, updateObj)
+}
+
+//updating an entry 
+//is this right?
+app.post("/Edit/:_id", express.urlencoded({ extended: true }), async (req, res) => {
+  let id = req.params._id;
+  let data = req.body;
+  console.log(data)
+  await updateEntry(id, data);
+  res.redirect("/");
+});
+
 app.get("/api", async (req, res) => {
   //get everything
   const cursor = await EntriesModel.find({});
@@ -97,16 +116,21 @@ app.get('/api/:id', async (req, res) => {
   let data = await EntriesModel.findOne({ _id: id})
    console.log(data)
 
-   let results = []
-
-   results.push(data);
-
-   res.json(results);
+   res.json(data);
 })
 
 app.get("/*", (req, res) => {
   res.send("sorry this is not found")
 })
+
+//to delete an entry
+app.get("/delete/:id", (req, res) => {
+  let id = req.params.id;
+
+  removeEntry(id);
+  res.redirect("/");
+});
+
 
 // //prints all entries in the database to terminal
 //comment out when adding an entry
