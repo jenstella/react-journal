@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 
 //always needs a url, and / connects it to that db
 //this connects to our database
-mongoose.connect("mongodb://localhost:27017/til", {
+mongoose.connect("mongodb:mongodb+srv://jenstella:<jLthans4!>@cluster0.gu8py.mongodb.net/reactJournal?retryWrites=true&w=majority" {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
