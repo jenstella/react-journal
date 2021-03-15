@@ -5,7 +5,8 @@ const path = require("path");
 const port = process.env.PORT || 5000;
 const { ObjectId } = require("mongodb");
 
-const staticDir = path.resolve("./client/public");
+const staticDir = path.resolve("./client/build");
+
 
 //----------Mongoose----------//
 
