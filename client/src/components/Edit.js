@@ -1,20 +1,16 @@
+//imports
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
+//function to edit entries
 export default function Edit() {
   const [oneEntry, setOneEntry] = useState([]);
 
   let temp_id = window.location.pathname.replace("/Edit/", "");
 
-  // async deleteEntry(id) => {
-  //   let collection = await this.collection()
-  //   let idObj = new ObjectId(id)
-
-  //   await collection.deleteOne({_id: idObj})
-
-  //   console.log(`Deleted entry with ID: ${id}`)
-  // }
   console.log(temp_id);
 
+  //
   useEffect(() => {
     if (oneEntry.length === 0) {
       fetch("/api/" + temp_id)
@@ -24,54 +20,73 @@ export default function Edit() {
         });
     }
   });
-  //container div / ternary
+
+  //container div has a ternary so if each entry does not equal 0, populates with the info from the selected post
+  //added an onChange to the inputs so that I can change the previous input
   console.log(oneEntry);
   return (
     <div>
+      <h1 id="page-headers">Update Entry Here</h1>
       <form id="form-container" action={"/Edit/" + temp_id} method="POST">
         <label className="inputs">
           <br></br>Title<br></br>
-          <input name="title" type="text" />
+          <input
+            name="title"
+            value={oneEntry.title + ""}
+            type="text"
+            onChange={(e) => setOneEntry({ title: e.target.value })}
+          />
           <br></br>
         </label>
         <label className="inputs">
           <br></br>Author<br></br>
-          <input name="author" type="text" />
+          <input
+            name="author"
+            value={oneEntry.author}
+            onChange={(e) => setOneEntry({ author: e.target.value })}
+            type="text"
+          />
           <br></br>
         </label>
         <label className="inputs">
           <br></br>Date<br></br>
-          <input name="date" type="date" />
+          <input
+            name="date"
+            onChange={(e) => setOneEntry({ date: e.target.value })}
+            type="date"
+          />
           <br></br>
         </label>
         <label className="inputs">
           <br></br>Tags<br></br>
-          <input name="tags" type="text" />
+          <input
+            name="tags"
+            value={oneEntry.tags}
+            type="text"
+            onChange={(e) => setOneEntry({ tags: e.target.value })}
+          />
           <br></br>
         </label>
         <label className="inputs">
           <br></br>Entry<br></br>
-          <textarea name="entry" type="text" />
+          <textarea name="entry" value={oneEntry.entry} type="text" />
           <br></br>
         </label>
-        <input id="on-page-buttons" type="submit" value="Submit Changes"/>
+        <input id="on-page-buttons" type="submit" value="Submit Changes" />
       </form>
       <hr />
-      <h1 id="page-headers">Original Post:</h1>
-      {oneEntry.length !== 0 ? (
-        <div id="update-container">
-          <h1 key={oneEntry.index + "-title"}>{oneEntry.title}</h1>{" "}
-          <h3 key={oneEntry.index + "-author"}>{oneEntry.author}</h3>{" "}
-          <h4 key={oneEntry.index + "-date"}>{oneEntry.date}</h4>{" "}
-          <p key={oneEntry.index + "-entry"}>{oneEntry.entry}</p>{" "}
-          <h3 key={oneEntry.index + "-tags"}>{oneEntry.tags}</h3>{" "}
-        </div>
-      ) : (
-        "Loading Data..."
-      )}
-{/* 
-      <button className="on-page-buttons">Edit Entry Data</button> */}
-      <button className="on-page-buttons">Delete Entry</button>
+
+      {/* button for deleting the entry */}
+      <Link id="delete-button" to="/Entries/">
+        <button
+          className="on-page-buttons"
+          onClick={() => {
+            fetch("/delete/" + temp_id);
+          }}
+        >
+          Delete Entry
+        </button>
+      </Link>
     </div>
   );
 }

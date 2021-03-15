@@ -1,0 +1,13 @@
+this went on the edit page under the form:
+      {/* <h1 id="page-headers">Original Post:</h1>
+      {oneEntry.length !== 0 ? (
+        <div id="update-container">
+          <h1 key={oneEntry.index + "-title"}>{oneEntry.title}</h1>{" "}
+          <h3 key={oneEntry.index + "-author"}>{oneEntry.author}</h3>{" "}
+          <h4 key={oneEntry.index + "-date"}>{oneEntry.date}</h4>{" "}
+          <p key={oneEntry.index + "-entry"}>{oneEntry.entry}</p>{" "}
+          <h3 key={oneEntry.index + "-tags"}>{oneEntry.tags}</h3>{" "}
+        </div>
+      ) : (
+        "Loading Data..."
+      )} */}

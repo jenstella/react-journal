@@ -1,3 +1,4 @@
+//imports
 import "./App.css";
 import Home from "./components/Home";
 import Entries from "./components/Entries";
@@ -5,6 +6,7 @@ import Edit from "./components/Edit";
 import Nav from "./components/Nav";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+//the nav bar buttons stay outside of the switch so they stay on each page
 function App() {
   return (
     <div>

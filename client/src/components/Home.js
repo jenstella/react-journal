@@ -3,7 +3,7 @@ import React from "react";
 export default function Home() {
   return (
     //on home screen have the forms to fill out entry
-    //the form info gets pushed into the entries page/compass
+    //the form info gets pushed into the entries page/compass db
     <div>
       <h1 id="page-headers">Today I Learned:</h1>
       <form id="form-container" action="/add" method="POST">

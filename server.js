@@ -3,12 +3,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 5000;
-const {ObjectId} = require('mongodb')
+const { ObjectId } = require("mongodb");
 
 const staticDir = path.resolve("./client/public");
-//how to draw in the user/pw from the .env
-const user = process.env.USER;
-const password = process.env.PASSWORD;
+
 
 //----------Mongoose----------//
 
@@ -58,30 +56,34 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
-//
+//function to update an entry, gets called below
 async function updateEntry(id, update) {
   let updateObj = {
-    $set: update
-  }
-  await EntriesModel.updateOne({_id: ObjectId(id)}, updateObj)
+    $set: update,
+  };
+  await EntriesModel.updateOne({ _id: ObjectId(id) }, updateObj);
 }
 
-//updating an entry 
-//is this right?
-app.post("/Edit/:_id", express.urlencoded({ extended: true }), async (req, res) => {
-  let id = req.params._id;
-  let data = req.body;
-  console.log(data)
-  await updateEntry(id, data);
-  res.redirect("/");
-});
+//updating an entry
+//call updateEntry function
+app.post(
+  "/Edit/:_id",
+  express.urlencoded({ extended: true }),
+  async (req, res) => {
+    let id = req.params._id;
+    let data = req.body;
+    console.log(data);
+    await updateEntry(id, data);
+    res.redirect("/");
+  }
+);
 
 app.get("/api", async (req, res) => {
   //get everything
   const cursor = await EntriesModel.find({});
   //create an array to hold it
   let results = [];
-  //iterate over cursor obj to push each doc into array
+  //iterate over cursor obj
   await cursor.forEach((entry) => {
     results.push(entry);
   });
@@ -110,38 +112,25 @@ NewEntry1.save((err, data) => {
   }
 });
 
-app.get('/api/:id', async (req, res) => {
-  let id = req.params.id
-  console.log(id)
-  let data = await EntriesModel.findOne({ _id: id})
-   console.log(data)
-
-   res.json(data);
-})
-
-app.get("/*", (req, res) => {
-  res.send("sorry this is not found")
-})
-
-//to delete an entry
-app.get("/delete/:id", (req, res) => {
+//pulls in one specific post to edit
+app.get("/api/:id", async (req, res) => {
   let id = req.params.id;
+  console.log(id);
+  let data = await EntriesModel.findOne({ _id: id });
+  console.log(data);
 
-  removeEntry(id);
-  res.redirect("/");
+  res.json(data);
 });
 
 
-// //prints all entries in the database to terminal
-//comment out when adding an entry
-// async function printAll() {
-//     const cursor = await EntriesModel.find({})
 
-//     await cursor.forEach(entry => {
-//         console.log(entry)
-//     })
-// }
-// printAll()
+//to delete an entry
+app.get("/delete/:id", async (req, res) => {
+  let id = req.params.id;
+
+  await EntriesModel.findOneAndDelete({ _id: id });
+});
+
 
 //port
 app.listen(port, () => {
