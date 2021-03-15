@@ -18,7 +18,7 @@ function App() {
           <Route path="/entries" component={Entries}>
             <Entries />
           </Route>
-          <Route path="/Edit" component={Edit}>
+          <Route path="/edit" component={Edit}>
             <Edit />
           </Route>
           {/* <Route path={"/entries/:objectId"}></Route> */}
