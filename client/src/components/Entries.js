@@ -17,6 +17,8 @@ export default function Entries() {
     }
   });
 
+
+  //returns each entry on the page by pulling in each piece of data seperately, and then giving the edit button for each entry
   return (
     <div>
       <h1 id="page-headers">All Entries</h1>

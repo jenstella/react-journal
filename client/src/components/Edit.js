@@ -10,7 +10,7 @@ export default function Edit() {
 
   console.log(temp_id);
 
-  //
+  //fetching each entry
   useEffect(() => {
     if (oneEntry.length === 0) {
       fetch("/api/" + temp_id)
@@ -22,7 +22,7 @@ export default function Edit() {
   });
 
   //container div has a ternary so if each entry does not equal 0, populates with the info from the selected post
-  //added an onChange to the inputs so that I can change the previous input
+  //added an onChange listener to the inputs so that I can change the previous input
   console.log(oneEntry);
   return (
     <div>
@@ -76,7 +76,7 @@ export default function Edit() {
       </form>
       <hr />
 
-      {/* button for deleting the entry */}
+      {/* button for deleting the entry and then redirects back to the entries page*/}
       <Link id="delete-button" to="/Entries/">
         <button
           className="on-page-buttons"

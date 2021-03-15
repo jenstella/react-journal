@@ -7,7 +7,6 @@ const { ObjectId } = require("mongodb");
 
 const staticDir = path.resolve("./client/public");
 
-
 //----------Mongoose----------//
 
 const mongoose = require("mongoose");
@@ -122,15 +121,12 @@ app.get("/api/:id", async (req, res) => {
   res.json(data);
 });
 
-
-
 //to delete an entry
 app.get("/delete/:id", async (req, res) => {
   let id = req.params.id;
 
   await EntriesModel.findOneAndDelete({ _id: id });
 });
-
 
 //port
 app.listen(port, () => {

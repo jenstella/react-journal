@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 //the nav bar buttons stay outside of the switch so they stay on each page
+//routes to each component/page
 function App() {
   return (
     <div>

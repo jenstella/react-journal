@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
+//nav bar with links to home and all of the entries
 export default function Nav() {
   return (
     <div id="nav-container">
